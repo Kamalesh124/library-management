@@ -12,7 +12,7 @@ const LibraryManagement = () => {
   const fetchBooks = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:9090/getAllBooks');
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getAllBooks`);
       if (response.ok) {
         const data = await response.json();
         setBooks(data);
@@ -37,7 +37,7 @@ const LibraryManagement = () => {
   const handleAddBook = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:9090/addBook', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/addBook`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const LibraryManagement = () => {
   const handleUpdateBook = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:9090/updateBookById/${editingBook.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/updateBookById/${editingBook.id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ const LibraryManagement = () => {
   // Delete book
   const handleDeleteBook = async (id) => {
     try {
-      const response = await fetch(`http://localhost:9090/deleteBookById/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/deleteBookById/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
