@@ -1,104 +1,101 @@
 # Library Management System
 
-## Overview
-
-The **Library Management System** is a full-stack web application built with **Spring Boot** (for the backend) and **React** (for the frontend). The application allows users to manage books by performing actions such as adding, updating, deleting, and viewing the list of books in the library.
-
-The backend is powered by a Spring Boot application, while the frontend is a React-based application. The system uses an H2 database for storing book details in the backend.
-
----
+A simple library management system built with a Spring Boot backend and React frontend, allowing users to manage books by performing CRUD operations (Create, Read, Update, Delete). This project is designed for managing books in a library and is deployed on Render with the frontend hosted on Vercel.
 
 ## Features
 
-- **Add a Book**: Add new books to the library by providing the title and author name.
-- **Update a Book**: Edit existing book details.
-- **Delete a Book**: Remove a book from the library.
-- **View All Books**: Display a list of all books in the library.
+- View a list of books in the library
+- Add a new book
+- Update an existing book's details
+- Delete a book
+- Responsive and user-friendly UI
 
----
+## Live Demo
 
-## Tech Stack
+You can check out the live demo of the application [here](https://library-management-ten-kappa.vercel.app).
 
-- **Backend**: Spring Boot, Java
-- **Frontend**: React.js
-- **Database**: H2 (in-memory)
-- **Docker**: For containerizing the application
-- **Render**: Cloud hosting service
+## Technologies Used
 
----
+- **Frontend**: React, TailwindCSS
+- **Backend**: Spring Boot
+- **Database**: H2 Database (for local storage)
+- **Deployment**: Render (Backend), Vercel (Frontend)
 
-## Prerequisites
+## Project Structure
 
-- **JDK 17** or later (for backend)
-- **Node.js** and **npm** (for frontend)
-- **Docker** (optional, for containerization)
+```
+├── backend
+│   ├── src
+│   ├── target
+│   └── pom.xml
+│
+├── frontend
+│   ├── public
+│   ├── src
+│   ├── package.json
+│   └── package-lock.json
+```
 
----
+### Backend
 
-## Setup Instructions
+- Spring Boot application
+- Handles CRUD operations for managing books
+- H2 in-memory database for storing book information
 
-### Backend Setup
+### Frontend
 
-1. **Clone the repository**:
+- React application
+- Allows users to interact with the library system, perform CRUD operations, and view the list of books
+
+## Installation
+
+### Backend
+
+1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/your-username/library-management.git
+   cd library-management/backend
    ```
 
-2. **Run the backend locally**:
+2. Install dependencies:
    ```bash
-   ./mvnw spring-boot:run
-   ```
-   By default, the backend runs on `http://localhost:8080`.
-
-### Frontend Setup
-
-1. **Navigate to the frontend folder**:
-   ```bash
-   cd frontend
+   mvn clean install
    ```
 
-2. **Install dependencies**:
+3. Run the Spring Boot application:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+4. The backend will be available at `http://localhost:9090`.
+
+### Frontend
+
+1. Navigate to the `frontend` directory:
+   ```bash
+   cd ../frontend
+   ```
+
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. **Run the frontend locally**:
+3. Run the React application:
    ```bash
    npm start
    ```
-   By default, the frontend runs on `http://localhost:3000` and connects to the backend at `http://localhost:8080`.
 
----
+4. The frontend will be available at `http://localhost:3000`.
 
-## Docker Setup
+## API Endpoints
 
-If you want to run the application using Docker:
+- `GET /getAllBooks`: Fetch all books
+- `POST /addBook`: Add a new book
+- `POST /updateBookById/{id}`: Update book details by ID
+- `DELETE /deleteBookById/{id}`: Delete book by ID
 
-1. **Build the Docker image**:
-   ```bash
-   docker build -t library-management-system .
-   ```
+## Deployment
 
-2. **Run the Docker container**:
-   ```bash
-   docker run -p 8080:8080 library-management-system
-   ```
-   This will make the backend accessible at `http://localhost:8080`.
-
----
-
-## Deployment on Render
-
-The application can be deployed on **Render** as a web service. Ensure that the backend and frontend are configured properly and deployed using Render’s service settings.
-
----
-
-## Endpoints
-
-### Backend API Endpoints
-
-- `GET /getAllBooks`: Fetch all books.
-- `POST /addBook`: Add a new book.
-- `POST /updateBookById/{id}`: Update the details of an existing book.
-- `DELETE /deleteBookById/{id}`: Delete a book.
+- **Frontend**: Hosted on Vercel (Live link: [https://library-management-ten-kappa.vercel.app](https://library-management-ten-kappa.vercel.app))
+- **Backend**: Hosted on Render (Live API)
